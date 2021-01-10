@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <form action="{{url_for('student_novi')}}" method="POST">
+            <br>
+            <h4>Novi Student</h4>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputText">Ime</label>
+                <input type="text" class="form-control" id="exampleInputText" name="ime" required>
+            </div> <div class="form-group">
+                <label for="exampleInputText">Ime roditelja</label>
+                <input type="text" class="form-control" id="exampleInputText" name="ime_roditelja" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputText">Prezime</label>
+                <input type="text" class="form-control" id="exampleInputText" name="prezime" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputText">Broj indeksa</label>
+                <input type="text" class="form-control" id="exampleInputText" name="broj_indeksa" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputNumber">Godina Studija</label>
+                <input type="number" class="form-control" id="exampleInputNumber" name="godina_studija" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputNumber">JMBG</label>
+                <input type="number" class="form-control" id="exampleInputNumber" name="jmbg" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputDate">Datum rodjenja</label>
+                <input type="date" class="form-control" id="exampleInputDate" name="datum_rodjenja" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputText">Broj telefona</label>
+                <input type="text" class="form-control" id="exampleInputText" name="broj_telefona" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email adresa</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sacuvaj</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

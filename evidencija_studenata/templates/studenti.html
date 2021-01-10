@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<div class="container">
+    <div class="row my-5 justify-content-end">
+        <a href="{{ url_for('student_novi') }}" role="button" class="btn btn-primary">Dodaj Studenta</a>
+    </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Broj indeksa</th>
+                        <th scope="col">Ime</th>
+                        <th scope="col">Prezime</th>
+                        <th scope="col">Godina studija</th>
+                        <th scope="col">ESPB</th>
+                        <th scope="col">Prosek ocena</th>
+                        <th scope="col">Akcije</th>
+                    </tr>
+                 </thead>
+             <tbody>
+                {% for student in studenti %}
+                     <tr>
+                        <td>{{ student.broj_indeksa }}</td>
+                        <td>{{ student.ime }}</td>
+                        <td>{{ student.prezime }}</td> 
+                        <td>{{ student.godina_studija }}</td>
+                        <td>{{ student.espb }}</td>
+                        <td>{{ student.prosek_ocena }}</td>
+                        <td class="row">
+                            <a href="{{ url_for('student', id=student.id) }}" role="button" class="icon-btn orange mx-1">
+                                <i class="fas fa-eye"></i>
+                             </a>
+                         <a href="{{ url_for('student_izmena', id=student.id) }}" role="button" class="text-warning mx-1">
+                            <i class="fas fa-edit"></i>
+                         </a>
+                        <a href="{{ url_for('student_brisanje', id=student.id) }}" role="button" class="text-danger mx-1"> 
+                            <i class="fas fa-trash"></i>
+                        </a>
+                        <a href="{{ url_for('export', tip='studenti') }}" role="button" class="btn-sm btn-success mx-1">Export
+                        </a>
+                         </td>
+                    </tr>
+                    {% endfor %}
+                 </tbody>
+        </table>
+    </div>
+    </div>
+    {% endblock %}

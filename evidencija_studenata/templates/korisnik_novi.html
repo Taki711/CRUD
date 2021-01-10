@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <form action="{{url_for('korisnik_novi')}}" method="POST">
+            <br>
+            <h4>Novi korisnik</h4>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputText">Ime</label>
+                <input type="text" class="form-control" id="exampleInputText" name="ime" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputText">Prezime</label>
+                <input type="text" class="form-control" id="exampleInputText" name="prezime" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail">Email adresa</label>
+                <input type="email" class="form-control" name="email" id=exampleInputEmail required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword">Lozinka</label>
+                <input type="password" class="form-control" name="lozinka" id="exampleInputPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="">Rola</label>
+            <select name="rola" class="form-control">
+                <option>Odaberi rolu</option>
+                <option value="Administrator">Administrator</option>
+                <option value="Profesor">Profesor</option>
+            </select>
+        </div>
+            <button type="submit" class="btn btn-primary">Posalji</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

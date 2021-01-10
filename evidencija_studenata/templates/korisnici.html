@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+
+<div class="container">
+    <div class="row my-5 justify-content-end">
+        <a href="{{ url_for('korisnik_novi') }}" role="button" class="btn btn-primary">Dodaj korisnika</a>
+    </div>
+        <div class="row">   
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Ime</th>
+                        <th scope="col">Prezime</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Rola</th>
+                        <th scope="col">Akcije</th>
+                    </tr>
+                 </thead>
+             <tbody>
+                {% for korisnik in korisnici %}
+                     <tr>
+                        <td>{{ korisnik.ime }}</td>
+                        <td>{{ korisnik.prezime }}</td> 
+                        <td>{{ korisnik.email }}</td>
+                        <td>{{ korisnik.rola }}</td>
+                        <td class="row">
+                         <a href="{{ url_for('korisnik_izmena', id=korisnik.id) }}" role="button" class="text-warning mx-1"><!--ID-->
+                            <i class="fas fa-edit"></i>
+                         </a>
+                        <a href="{{ url_for('korisnik_brisanje', id=korisnik.id) }}" role="button" class="text-danger mx-1">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                            <a href="{{ url_for('export', tip='korisnici') }}" role="button" class="btn-sm btn-success mx-1">Export
+                                </a>
+                         </td>
+                    </tr>
+                    {% endfor %}
+                 </tbody>
+        </table>
+    </div>
+    </div>
+    {% endblock %}
